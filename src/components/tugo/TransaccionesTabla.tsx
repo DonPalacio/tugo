@@ -70,7 +70,7 @@ function FechaCelda({ value, onChange }: { value: string; onChange: (iso: string
         <Calendar
           mode="single"
           locale={es}
-          defaultMonth={dateFromIso(value)}
+          defaultMonth={dateFromIso(value) ?? new Date()}
           selected={dateFromIso(value)}
           onSelect={(d) => {
             if (d) onChange(isoFromDate(d));
