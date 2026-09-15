@@ -70,7 +70,7 @@ function FechaCelda({ value, onChange }: { value: string; onChange: (iso: string
         <Calendar
           mode="single"
           locale={es}
-          defaultMonth={dateFromIso(value)}
+          defaultMonth={dateFromIso(value) ?? new Date()}
           selected={dateFromIso(value)}
           onSelect={(d) => {
             if (d) onChange(isoFromDate(d));
@@ -252,20 +252,20 @@ export function TransaccionesTabla() {
       <div className="hidden overflow-x-auto rounded-xl border border-foreground/20 bg-background md:block">
         <table className="w-full min-w-[900px] border-collapse text-sm">
           <thead>
-            <tr style={{ backgroundColor: "#d4edbc" }}>
+            <tr className="bg-[#262626]">
               {COLUMNAS.map((c) => (
                 <th
                   key={c}
                   scope="col"
                   className={cn(
-                    "border-b border-r border-foreground/20 px-3 py-2.5 text-left text-xs font-bold uppercase tracking-wide",
+                    "border-b border-r border-white/15 px-3 py-2.5 text-left text-xs font-bold uppercase tracking-wide text-white",
                     c === "Valor" && "text-right",
                   )}
                 >
                   {c}
                 </th>
               ))}
-              <th className="w-10 border-b border-foreground/20 px-2 py-2.5">
+              <th className="w-10 border-b border-white/15 px-2 py-2.5 text-white">
                 <span className="sr-only">Acciones</span>
               </th>
             </tr>
