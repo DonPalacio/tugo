@@ -2,7 +2,7 @@ import * as React from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Plus, Trash2 } from "lucide-react";
 import { AppNav } from "@/components/tugo/AppNav";
-import { ColorPicker, PALETA } from "@/components/tugo/ColorPicker";
+import { ColorPicker, ROJO, VERDE } from "@/components/tugo/ColorPicker";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { contarUsoCategoria, useTugo, type Tipo } from "@/lib/tugo-store";
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/categorias")({
 function ListaCategorias({ tipo }: { tipo: Tipo }) {
   const { data, addCategoria, updateCategoria, deleteCategoria } = useTugo();
   const [nombre, setNombre] = React.useState("");
-  const [color, setColor] = React.useState(tipo === "Ingreso" ? PALETA[0] : PALETA[5]);
+  const [color, setColor] = React.useState(tipo === "Ingreso" ? VERDE : ROJO);
 
   const lista = data.categorias.filter((c) => c.tipo === tipo);
 

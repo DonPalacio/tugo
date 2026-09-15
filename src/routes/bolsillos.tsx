@@ -2,7 +2,7 @@ import * as React from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Plus, Trash2 } from "lucide-react";
 import { AppNav } from "@/components/tugo/AppNav";
-import { ColorPicker, PALETA } from "@/components/tugo/ColorPicker";
+import { ColorPicker, VERDE } from "@/components/tugo/ColorPicker";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { formatCOP } from "@/lib/currency";
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/bolsillos")({
 function BolsillosPage() {
   const { data, addBolsillo, updateBolsillo, deleteBolsillo } = useTugo();
   const [nombre, setNombre] = React.useState("");
-  const [color, setColor] = React.useState(PALETA[0]);
+  const [color, setColor] = React.useState(VERDE);
 
   const crear = (e: React.FormEvent) => {
     e.preventDefault();

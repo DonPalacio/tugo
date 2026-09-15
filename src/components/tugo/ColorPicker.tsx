@@ -1,5 +1,8 @@
 import { cn } from "@/lib/utils";
 
+export const VERDE = "#d4edbc";
+export const ROJO = "#fca5a5";
+
 export const PALETA = [
   "#d4edbc",
   "#a7e8a0",
