@@ -1,4 +1,5 @@
 import * as React from "react";
+import { es } from "date-fns/locale";
 import { CalendarIcon, Plus, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
@@ -68,6 +69,8 @@ function FechaCelda({ value, onChange }: { value: string; onChange: (iso: string
       <PopoverContent className="w-auto p-0" align="start">
         <Calendar
           mode="single"
+          locale={es}
+          defaultMonth={dateFromIso(value)}
           selected={dateFromIso(value)}
           onSelect={(d) => {
             if (d) onChange(isoFromDate(d));
