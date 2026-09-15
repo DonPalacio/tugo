@@ -231,13 +231,16 @@ export function TransaccionesTabla() {
       <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
         <div
           className="rounded-xl border border-foreground/15 p-3"
-          style={{ backgroundColor: "#d4edbc" }}
+          style={{ backgroundColor: "#e8f6d9" }}
         >
           <p className="text-xs font-semibold uppercase tracking-wide">Ingresos</p>
           <p className="mt-0.5 text-lg font-black tabular-nums">{formatCOP(ingresos)}</p>
         </div>
-        <div className="rounded-xl border border-foreground/15 bg-foreground p-3 text-background">
-          <p className="text-xs font-semibold uppercase tracking-wide opacity-80">Egresos</p>
+        <div
+          className="rounded-xl border border-foreground/15 p-3"
+          style={{ backgroundColor: "#f9e3e3" }}
+        >
+          <p className="text-xs font-semibold uppercase tracking-wide">Egresos</p>
           <p className="mt-0.5 text-lg font-black tabular-nums">{formatCOP(egresos)}</p>
         </div>
         <div className="col-span-2 rounded-xl border border-foreground/15 bg-background p-3 sm:col-span-1">
