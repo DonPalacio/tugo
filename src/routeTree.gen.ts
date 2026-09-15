@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BolsillosRouteImport } from './routes/bolsillos'
+import { Route as CategoriasRouteImport } from './routes/categorias'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BolsillosRoute = BolsillosRouteImport.update({
+  id: '/bolsillos',
+  path: '/bolsillos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CategoriasRoute = CategoriasRouteImport.update({
+  id: '/categorias',
+  path: '/categorias',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bolsillos': typeof BolsillosRoute
+  '/categorias': typeof CategoriasRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bolsillos': typeof BolsillosRoute
+  '/categorias': typeof CategoriasRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bolsillos': typeof BolsillosRoute
+  '/categorias': typeof CategoriasRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/bolsillos' | '/categorias'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/bolsillos' | '/categorias'
+  id: '__root__' | '/' | '/bolsillos' | '/categorias'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BolsillosRoute: typeof BolsillosRoute
+  CategoriasRoute: typeof CategoriasRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/bolsillos': {
+      id: '/bolsillos'
+      path: '/bolsillos'
+      fullPath: '/bolsillos'
+      preLoaderRoute: typeof BolsillosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/categorias': {
+      id: '/categorias'
+      path: '/categorias'
+      fullPath: '/categorias'
+      preLoaderRoute: typeof CategoriasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BolsillosRoute: BolsillosRoute,
+  CategoriasRoute: CategoriasRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

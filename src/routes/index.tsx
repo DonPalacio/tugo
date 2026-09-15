@@ -1,24 +1,36 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { AppNav } from "@/components/tugo/AppNav";
+import { TransaccionesTabla } from "@/components/tugo/TransaccionesTabla";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const title = "Tugo — Tus finanzas personales en una hoja de cálculo";
+const description =
+  "Registra ingresos y egresos en pesos colombianos con una tabla editable tipo Excel: bolsillos, categorías, terceros y saldos al instante.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-secondary/40">
+      <AppNav />
+      <main className="mx-auto max-w-[1400px] px-4 py-6">
+        <div className="mb-5">
+          <h1 className="text-2xl font-black tracking-tight sm:text-3xl">Transacciones</h1>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Edita cualquier celda directamente, como en una hoja de cálculo.
+          </p>
+        </div>
+        <TransaccionesTabla />
+      </main>
     </div>
   );
 }
