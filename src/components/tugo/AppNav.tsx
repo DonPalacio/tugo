@@ -12,12 +12,6 @@ export function AppNav() {
     <header className="sticky top-0 z-30 border-b border-foreground/15 bg-background">
       <div className="mx-auto grid max-w-[1400px] grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-3 sm:flex sm:justify-between">
         <Link to="/" className="flex min-w-0 items-center gap-2">
-          <span
-            className="grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-foreground/20 font-black"
-            style={{ backgroundColor: "#d4edbc" }}
-          >
-            T
-          </span>
           <span className="truncate text-lg font-black tracking-tight">Tugo</span>
         </Link>
 
