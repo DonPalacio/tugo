@@ -247,7 +247,7 @@ export function TransaccionesTabla() {
           <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
             Saldo neto
           </p>
-          <p className="mt-0.5 text-lg font-black tabular-nums">{formatCOP(ingresos - egresos)}</p>
+          <p className={cn("mt-0.5 text-lg font-black tabular-nums", (ingresos - egresos) < 0 && "text-red-500")}>{formatCOP(ingresos - egresos)}</p>
         </div>
       </div>
 
