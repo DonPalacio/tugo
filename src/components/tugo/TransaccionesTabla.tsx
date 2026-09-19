@@ -336,7 +336,7 @@ export function TransaccionesTabla() {
               <td colSpan={6} className="px-3 py-2.5 text-right text-xs uppercase tracking-wide">
                 Saldo neto
               </td>
-              <td className="px-2 py-2.5 text-right tabular-nums">
+              <td className={cn("px-2 py-2.5 text-right tabular-nums", (ingresos - egresos) < 0 && "text-red-500")}>
                 {formatCOP(ingresos - egresos)}
               </td>
               <td />
